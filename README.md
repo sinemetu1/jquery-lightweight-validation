@@ -1,7 +1,16 @@
 [Lightweight jQuery Validation](http://samonstuff.blogspot.com/2011/03/jquery-lightweight-validation-plugin.html)
 ==
+
+* Minified: 4.82 kb
+* Cross-browser compatible
+* License: MIT
+
 ##1. Init the plugin
-  `$('.selector').validateHandle();` to initialize where selector is the set of elements you would like validated.
+
+  ```js
+  // Call .validateHandle() to initialize where theselector is the set of elements to be validated.
+  $('.selector').validateHandle();
+  ```
 		  
   <h4>A. Add default rule keys as classes to elements that you would like the default rule to apply to.</h4>
   
@@ -29,19 +38,22 @@
 
   <h4>B. Options:</h4>
 
-  errorClass - an error class that gets added to the displayed error message: 
-  ```
+  errorClass - an error class that gets added to the displayed error message:
+  
+  ```js
   $('.selector').validateHandle({ errorClass : "someClass" });
   ```
 
   appendTo - an element that you would like to append the error messages to:
-  ```
+  
+  ```js
   $('.selector').validateHandle({ appendTo : $('#div_error_area') });
   ```
 
 ##2. Add custom rules to elements
 
-  ```
+  ```js
+  // Call .addRule() with a proper JSON object to add a new rule to an element.
   $('.selector').addRule({
       "rule": /^[a-zA-Z0-9]{4,24}$/,
 	  "message": "Must be 4-24 characters in length."
@@ -50,7 +62,7 @@
 
   or using `"minLength"` which applies to `<select>`, `<input type="checkbox" />`, `<input type="radio" />` elements:
 
-  ```
+  ```js
   $('.selector').addRule({
       "rule": { "minLength" : 1 },
   	  "message": "Must select at least 1"
@@ -59,7 +71,7 @@
 
   or using boolean returning function for validation:
 
-  ```
+  ```js
   $('.selector').addRule({
       "bool" : function () {
 		  return $('#example').val() !== '';
@@ -73,7 +85,7 @@
 
   or using minLength operation and appendTo option:
   
-  ```
+  ```js
   $('.selector').addRule({
 	  "rule": { "minLength" : 1 },
 	  "message": "Must select at least 1.",
@@ -82,4 +94,8 @@
   ```
 
 ##3. Validate the elements
-Call `$('.selector').validate();` when you would like to see whether the inputs are valid.
+
+  ```js
+  // Call .validate() on the previously initilized elements when you would like to see whether the inputs are valid.
+  $('.selector').validate();
+  ```
